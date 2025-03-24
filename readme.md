@@ -1,8 +1,14 @@
 # Spire Instruction Tuning
 
-### Pre-requisites
+## Pre-requisites
+### Create an environment:
+```bash
+python3.10 -m venv spire-it
+source spire-it/bin/activate
+```
 
-Create an environment:
+### Installing AXOLOTL dependencies 
+Taken from [AXOLOTL](https://github.com/axolotl-ai-cloud/axolotl/tree/main)
 ```bash
 git clone https://github.com/axolotl-ai-cloud/axolotl.git
 cd axolotl
@@ -13,7 +19,7 @@ pip3 install --no-build-isolation axolotl[flash-attn,deepspeed]
 
 The configuration used for training the various variants of SpireLM are present in `configs/` along with the default, all differ in the ***dataset path*** field. 
 
-### Data format
+## Data format
 For training SpireLM we used the chatML prompt format. An example of a single line from the required data JSON file is shown below:
 
 ```json
