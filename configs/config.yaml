@@ -1,0 +1,78 @@
+base_model: << PATH TO EXTENDED TOWERBASE MODEL >>
+model_type: LlamaForCausalLM
+tokenizer_type: LlamaTokenizer
+
+load_in_8bit: false
+load_in_4bit: false
+strict: false
+
+datasets:
+    - path: << DATA PATH.JSON >>
+      type: sharegpt
+      conversation: chatml
+
+dataset_prepared_path: << PATH FOR SAVING TOKENIZED DATASET >>
+val_set_size: 0
+output_dir: << OUTPUT DIRECTORY PATH >>
+
+sequence_len: 4096
+sample_packing: true
+pad_to_sequence_len: true
+
+adapter:
+lora_model_dir:
+lora_r:
+lora_alpha:
+lora_dropout:
+lora_target_linear:
+lora_fan_in_fan_out:
+
+wandb_project: << WANDB PROJECT NAME >>
+wandb_entity: << WANDB USERNAME >>
+wandb_watch:
+wandb_name:  << WANDB RUN NAME >>
+wandb_log_model:
+
+gradient_accumulation_steps: 12
+micro_batch_size: 12
+eval_batch_size: 1
+num_epochs: 4
+optimizer: adamw_torch
+lr_scheduler: cosine
+learning_rate: 7e-6
+
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: true
+
+auto_resume_from_checkpoints: true
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+local_rank:
+logging_steps:
+xformers_attention:
+flash_attention: true
+flash_attn_cross_entropy: false
+flash_attn_rms_norm: true
+flash_attn_fuse_qkv: false
+flash_attn_fuse_mlp: false
+
+warmup_steps: 100 
+eval_steps: 
+eval_sample_packing: False
+eval_table_size:
+save_steps: 400
+save_total_limit: 1
+debug:
+deepspeed: deepspeed_config/ZeRO3.json
+fsdp:
+fsdp_config:
+tokens: 
+  - <|im_start|>
+special_tokens:
+  bos_token: <s>
+  eos_token: <|im_end|>
+  unk_token: <unk>
