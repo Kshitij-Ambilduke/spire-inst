@@ -17,7 +17,7 @@ pip3 install -U packaging==23.2 setuptools==75.8.0 wheel ninja
 pip3 install --no-build-isolation axolotl[flash-attn,deepspeed]
 ```
 
-The configuration used for training the various variants of SpireLM are present in `configs/` along with the default, all differ in the ***dataset path*** field. 
+The configuration used for training the various variants of SpireLM are present in `configs/config.yaml`, all variants differ in the ***dataset path*** field. Besides this, the rest of the hyperparameters used were same across all the variants.
 
 ## Data format
 For training SpireLM we used the chatML prompt format. An example of a single line from the required data JSON file is shown below:
