@@ -28,7 +28,7 @@ For training SpireLM we used the chatML prompt format. An example of a single li
             {"from": "human", "value": "<< INPUT TO THE MODEL >>"}, 
             {"from": "gpt", "value": "<< OUTPUT OF FROM MODEL >>"}, 
             {"from": "human", "value": "<< FOLLOWUP INPUT TO THE MODEL >>"}, 
-            {"from": "human", "value": "<< OUTPUT FROM THE MODEL >>"}
+            {"from": "gpt", "value": "<< OUTPUT FROM THE MODEL >>"}
         ]
 }
 ```
